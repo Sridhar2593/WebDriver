@@ -9,5 +9,7 @@
 	<classpathentry kind="lib" path="C:/Users/srid0/Downloads/Softwares/selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/srid0/Downloads/Softwares/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="C:/Users/srid0/Downloads/Softwares/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srid0/Downloads/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srid0/Downloads/mysql-connector-java-8.0.20.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

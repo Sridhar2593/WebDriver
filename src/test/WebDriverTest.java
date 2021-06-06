@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebDriverTest {
 
@@ -17,11 +19,15 @@ public class WebDriverTest {
 		WebDriver driver = new ChromeDriver();
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		//driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS); --- Implicit wait
 		driver.get("https://www.simplilearn.com/");
 		WebElement LoginLink = driver.findElement(By.linkText("Log in"));
 		LoginLink.click();
 		WebElement UserName = driver.findElement(By.name("user_login"));
+		
+		WebDriverWait wait = new WebDriverWait(driver,30); //--- Explicit Wait
+		wait.until(ExpectedConditions.elementToBeClickable(UserName));
+		
 		UserName.sendKeys("srid01srid@gmail.com");
 		WebElement Password = driver.findElement(By.id("password"));
 		Password.sendKeys("abs@1025");
