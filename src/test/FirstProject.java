@@ -26,8 +26,8 @@ public class FirstProject {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String Category;
-		String SearchVal;
+		String Category = null;
+		String SearchVal = null;
 		WebDriver driver = new ChromeDriver();
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver.manage().window().maximize();
@@ -48,11 +48,14 @@ public class FirstProject {
 				while(rs.next()) {
 					
 					System.out.println(rs.getString(2)+ " " + rs.getString(3));
-					
 					Category = rs.getString(2);
+					SearchVal = rs.getString(3);
+				}
+					
+					
 					WebElement search = driver.findElement(By.xpath("//select[@id = 'searchDropdownBox']"));
 					search.sendKeys(Category);
-					SearchVal = rs.getString(3);
+					
 					WebElement searchBar = driver.findElement(By.xpath("//input[@id = 'twotabsearchtextbox']"));
 					searchBar.sendKeys(SearchVal);
 					WebElement searchButton = driver.findElement(By.xpath("//input[@type = 'submit']"));
@@ -64,7 +67,10 @@ public class FirstProject {
 					System.out.println("Total Number of Sponsers: " + SponserResults.size());
 					
 					int Results = ShownResults.size() - SponserResults.size();
-					System.out.println("Total NUmber of Mobiles: " + Results);
+					System.out.println("Total Number of Mobiles: " + Results);
+					
+					//WebElement ExpectedResult = driver.findElement(By.xpath("//*[@class='a-section a-spacing-small a-spacing-top-small']/span[1]"));
+					//System.out.println("Expected Result: " + ExpectedResult.getText());
 					
 					TakesScreenshot tsObj = (TakesScreenshot)driver;
 					
@@ -76,7 +82,7 @@ public class FirstProject {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				}
+				
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
